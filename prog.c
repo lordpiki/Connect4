@@ -30,7 +30,6 @@ Move* createMove(int board[][BOARD_SIZE], int turn, int playerMove);
 void addMove(Move** head, Move* moveToAdd);
 bool checkWin(int board[][BOARD_SIZE], int turn);
 char convert(int turn);
-void reverseAction(int board[][BOARD_SIZE]);
 
 int main()
 {
@@ -272,8 +271,4 @@ bool checkWin(int board[][BOARD_SIZE], int turn)
 char convert(int turn)
 {
     return turn == RED ? 'X' : 'O';
-}
-
-void reverseAction(int board[][BOARD_SIZE])
-{
 }
