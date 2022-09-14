@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -128,11 +120,12 @@ void goBack(int board[][BOARD_SIZE], Move** head)
         if (board[i][temp->num] != EMPTY)
         {
             board[i][temp->num] = EMPTY;
+            i = BOARD_SIZE;
         }
     }
+    viewBoard(board);
     previous->next = NULL;
     free(temp);
-    viewBoard(board);
 }
 
 Move* createMove(int board[][BOARD_SIZE], int turn, int playerMove)
@@ -144,7 +137,7 @@ Move* createMove(int board[][BOARD_SIZE], int turn, int playerMove)
     bool validMove = false;
 
     while (true)
-    {   
+    {
         if (board[0][move->num] != EMPTY)
         {
             printf("\nFull, %d\n", board[0][move->num]);
@@ -170,7 +163,7 @@ Move* createMove(int board[][BOARD_SIZE], int turn, int playerMove)
                 if (board[i][move->num] != EMPTY)
                 {
                     board[i - 1][move->num] = turn;
-                    
+
                     return move;
                 }
             }
